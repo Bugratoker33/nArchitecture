@@ -1,0 +1,26 @@
+﻿using Core.Persistence.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Principal;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain1.Entities1
+{
+    public class Brand:Entity
+    {
+        public string Name { get; set; }
+
+        public Brand()
+        {
+        }
+
+        public Brand(int id, string name ):this() 
+        {
+            Id = id;
+
+            Name = name;
+        }
+    }
+}

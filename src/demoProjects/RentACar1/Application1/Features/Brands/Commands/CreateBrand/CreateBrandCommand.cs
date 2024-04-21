@@ -31,7 +31,7 @@ namespace Application1.Features.Brands.Commands.CreateBrand
                 _brandBusinessRule = brandBusinessRule;
             }
 
-            public async Task<CreatedBrandDto> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
+            public async Task<CreatedBrandDto> Handle(CreateBrandCommand request, CancellationToken cancellationToken) //ahanda burası handeler 
             {
               await _brandBusinessRule.BrandNameCanNotBeDuplicatedWhenInserted(request.Name);
                 Brand mappedBrand = _mapper.Map<Brand>(request); //gelen requesti brand nesnesibne çevir

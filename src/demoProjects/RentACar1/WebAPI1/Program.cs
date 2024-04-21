@@ -29,7 +29,7 @@ namespace WebAPI1
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-          
+         //  if(app.Environment.IsProduction())
             app.ConfigureCustomExceptionMiddleware();
 
             app.UseAuthorization();

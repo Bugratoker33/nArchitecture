@@ -1,4 +1,6 @@
 using Persistance1;
+using Application1;
+using Core.CrossCuttingConcerns.Exceptions;
 namespace WebAPI1
 {
     public class Program
@@ -10,8 +12,7 @@ namespace WebAPI1
             // Add services to the container.
 
             builder.Services.AddControllers();
-           
-            //builder.Services.AddApplicationServices();
+            builder.Services.AddApplicationServices();
             //builder.Services.AddSecurityServices();
             builder.Services.AddPersistenceServices(builder.Configuration);
             //builder.Services.AddInfrastructureServices();
@@ -28,6 +29,8 @@ namespace WebAPI1
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+          
+            app.ConfigureCustomExceptionMiddleware();
 
             app.UseAuthorization();
 

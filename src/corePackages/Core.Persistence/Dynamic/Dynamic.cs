@@ -2,7 +2,7 @@
 
 public class Dynamic
 {
-    public IEnumerable<Sort>? Sort { get; set; }
+    public IEnumerable<Sort>? Sort { get; set; } //ben datayı şuna göre azalan artana göre sırala 
     public Filter? Filter { get; set; }
 
     public Dynamic()

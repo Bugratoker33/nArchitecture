@@ -1,6 +1,7 @@
 ﻿using Application.Features.someFeature.Commands.CreateSomeFeature;
 using Application.Features.someFeature.Dtos;
 using Application1.Features.Brands.Commands.CreateBrand;
+using Application1.Features.Brands.Commands.Delete;
 using Application1.Features.Brands.Dtos;
 using Application1.Features.Brands.Models;
 using Application1.Features.Brands.Queries.GetByIdBrand;
@@ -28,6 +29,13 @@ namespace WebAPI1.Controllers
             BrandListModel result = await Mediator.Send(getListBrandQuery);//mediater a git bu commandın handeelereini bul diyoruz 
             return Ok(result);
 
+        }
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody] DeleteBrandCommand deleteBrandCommand)
+        {
+            DeleteBrandDto deleteBrandDto = await Mediator.Send(deleteBrandCommand);
+
+            return Ok(deleteBrandDto);
         }
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetById([FromRoute] GetByBrandQuery getByBrandQuery)

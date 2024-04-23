@@ -1,4 +1,5 @@
 ﻿using Application1.Features.Brands.Commands.CreateBrand;
+using Application1.Features.Brands.Commands.Delete;
 using Application1.Features.Brands.Dtos;
 using Application1.Features.Brands.Models;
 using AutoMapper;
@@ -18,9 +19,13 @@ namespace Application1.Features.Brands.Profiles
         {
             CreateMap<Brand ,CreatedBrandDto>().ReverseMap();
             CreateMap<Brand , CreateBrandCommand>().ReverseMap();
+            CreateMap<Brand, DeleteBrandDto>().ReverseMap();
+            CreateMap<Brand , DeleteBrandCommand>().ReverseMap();
+
             CreateMap<IPaginate<Brand> ,BrandListModel>().ReverseMap();
             CreateMap<Brand ,BrandListDto>().ReverseMap();
             CreateMap<Brand ,BrandGetByIdDto>().ReverseMap();
+
 
 
 

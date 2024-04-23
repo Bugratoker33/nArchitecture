@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application1.Features.Brands.Commands.CreateBrand
-{
+{               //request                      //response
     public class CreateBrandCommand :IRequest<CreatedBrandDto>//bu işlem sonucunda döndüreceğimiz Dto 
     {
         public string Name { get; set; }

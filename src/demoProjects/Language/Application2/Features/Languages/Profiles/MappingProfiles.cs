@@ -1,5 +1,7 @@
 ﻿using Application2.Features.Language.Dtos;
 using Application2.Features.Languages.Commnds.Created.CreatedLanguage;
+using Application2.Features.Languages.Dtos;
+using Application2.Features.Languages.Models;
 using AutoMapper;
 using Core.Persistence.Paging;
 using Domain2.Entities;
@@ -17,6 +19,8 @@ namespace Application2.Features.Languages.Profiles
         {
             CreateMap<Language1 ,CreateLanguageDtos>().ReverseMap();
             CreateMap<Language1,CreateLangugaCommand>().ReverseMap();
+            CreateMap<IPaginate<Language1>, LanguageListModel>().ReverseMap();  
+            CreateMap<Language1,LanguageListDto>().ReverseMap();
 
             //CreateMap<Brand, CreatedBrandDto>().ReverseMap();
             //CreateMap<Brand, CreateBrandCommand>().ReverseMap();

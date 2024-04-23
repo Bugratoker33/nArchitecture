@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Application2.Features.Languages.Rules;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,9 @@ namespace Application2
 
            services.AddAutoMapper(Assembly.GetExecutingAssembly());
            services.AddMediatR(Assembly.GetExecutingAssembly());
+           services.AddScoped<LanguageBusinessRule>();
 
-          //  services.AddScoped<BrandBusinessRule>();
-
+         
            // services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));

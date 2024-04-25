@@ -1,4 +1,6 @@
-﻿using Application1.Features.Brands.Rules;
+﻿using Application1.Features.Auths.Rules;
+using Application1.Features.Brands.Rules;
+using Application1.Services.AuthService;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
 using MediatR;
@@ -14,13 +16,14 @@ namespace Application1
 {
     public static class ApplicationServiceRegistration
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        public static IServiceCollection AddApplicationServices1(this IServiceCollection services)
         {
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddScoped<BrandBusinessRule>();
+            services.AddScoped<AuthBussinesRules>();
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
@@ -28,6 +31,7 @@ namespace Application1
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheRemovingBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>)); //pilen devreye sokmadan çalışmaz validateör aslında burası aspect 
+            services.AddScoped<IAuthService,AuthManger>();
 
             return services;
 

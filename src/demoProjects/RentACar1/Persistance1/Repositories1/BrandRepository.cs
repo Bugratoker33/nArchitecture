@@ -13,7 +13,7 @@ namespace Persistance1.Repositories1
     public class BrandRepository : EfRepositoryBase<Brand, BaseDbContext>, IBrandRepository
     {
         public BrandRepository(BaseDbContext context) : base(context) //base efrepository 
-            //Base dbcontexte göre çalışacak 
+                                                                      //Base dbcontexte göre çalışacak 
         {
 
         }
